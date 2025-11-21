@@ -1,88 +1,84 @@
-import { useEffect, useRef, useState } from 'react';
-import { ExternalLink, Github, X } from 'lucide-react';
-import type { Project } from '../types';
+import { useEffect, useRef, useState } from "react";
+import { ExternalLink, Github, X } from "lucide-react";
+import type { Project } from "../types";
 
 const Projects = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
 
   const projects: Project[] = [
     {
-      id: '1',
-      title: 'E-Commerce Platform',
-      description: 'A full-featured online shopping platform with payment integration',
-      image: 'https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800',
-      tags: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-      category: 'Web App',
-      liveUrl: '#',
-      githubUrl: '#',
-      details: 'Built a complete e-commerce solution with user authentication, product management, shopping cart, and secure payment processing using Stripe. Implemented real-time inventory updates and order tracking.',
+      id: "1",
+      title: "Tempo ABA Website",
+      description: "A fully responsive informational website for an ABA therapy organization",
+      image: "",
+      tags: ["React", "TypeScript", "Tailwind", "HTML", "CSS", "JavaScript"],
+      category: "Web App",
+      liveUrl: "https://tempoaba.com/",
+      githubUrl: "https://github.com/akabhowmick/tempo-aba",
+      details:
+        "Built a clean and accessible platform for ABA therapy services with a modern layout, responsive design, detailed service pages, a team section, and a polished FAQ experience. Styled with Tailwind and optimized for mobile and desktop viewing.",
     },
+
     {
-      id: '2',
-      title: 'Task Management System',
-      description: 'Collaborative project management tool with real-time updates',
-      image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800',
-      tags: ['React', 'TypeScript', 'Firebase', 'Tailwind'],
-      category: 'Web App',
-      liveUrl: '#',
-      githubUrl: '#',
-      details: 'Developed a comprehensive task management application featuring real-time collaboration, drag-and-drop interface, team management, and progress tracking with beautiful data visualizations.',
+      id: "2",
+      title: "Etsy E-Commerce Template",
+      description: "A customizable e-commerce storefront designed for Etsy-style businesses",
+      image: "",
+      tags: ["React", "TypeScript", "Supabase", "MUI", "HTML", "CSS", "JavaScript"],
+      category: "Web App",
+      liveUrl: "https://etsy-e-commerce-template.netlify.app/",
+      githubUrl: "https://github.com/akabhowmick/etsy-e-commerce-template",
+      details:
+        "Developed a feature-rich e-commerce template with PayPal integration, inventory management features, product pages, and responsive layouts. Built for creators who want a secure, customizable storefront with a clean and intuitive shopping experience.",
     },
+
     {
-      id: '3',
-      title: 'Weather Forecast App',
-      description: 'Beautiful weather application with detailed forecasts',
-      image: 'https://images.pexels.com/photos/209831/pexels-photo-209831.jpeg?auto=compress&cs=tinysrgb&w=800',
-      tags: ['React', 'API Integration', 'CSS'],
-      category: 'Mobile',
-      liveUrl: '#',
-      githubUrl: '#',
-      details: 'Created an intuitive weather application that provides detailed forecasts, interactive maps, and weather alerts. Features location-based weather data and beautiful animated weather icons.',
+      id: "3",
+      title: "Print3Dverse",
+      description: "An online store for selling 3D-rendered house designs",
+      image: "",
+      tags: ["React", "Firebase", "PayPal", "MUI", "HTML", "CSS", "JavaScript"],
+      category: "Web App",
+      liveUrl: "https://print3dverse.com/",
+      githubUrl: "https://github.com/akabhowmick/3d-site",
+      details:
+        "Created a polished e-commerce experience for browsing, purchasing, and downloading 3D architectural renders. Features PayPal checkout, product customization, user contact collection, and a fully responsive UI built with React and Material-UI.",
     },
+
     {
-      id: '4',
-      title: 'Portfolio Website Builder',
-      description: 'No-code platform for creating stunning portfolio websites',
-      image: 'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=800',
-      tags: ['React', 'Node.js', 'PostgreSQL'],
-      category: 'Web App',
-      liveUrl: '#',
-      githubUrl: '#',
-      details: 'Designed and developed a user-friendly platform allowing users to create professional portfolios without coding. Includes template system, drag-and-drop editor, and one-click deployment.',
+      id: "4",
+      title: "TaekwonMaru",
+      description: "A responsive website for a Taekwondo school with business-focused features",
+      image: "",
+      tags: ["React", "TypeScript", "MUI", "HTML", "CSS", "JavaScript"],
+      category: "Web App",
+      liveUrl: "https://marutaekwondo.com/",
+      githubUrl: "https://github.com/akabhowmick/TaekwonMaru-React",
+      details:
+        "Designed a clean, responsive site for a New York Taekwondo studio. Includes instructor bios, class offerings, schedules, contact forms, and promotional sections. Built to function as both a brand site and a reusable template for small businesses.",
     },
+
     {
-      id: '5',
-      title: 'Social Media Dashboard',
-      description: 'Analytics dashboard for social media metrics',
-      image: 'https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg?auto=compress&cs=tinysrgb&w=800',
-      tags: ['React', 'D3.js', 'Express'],
-      category: 'Dashboard',
-      liveUrl: '#',
-      githubUrl: '#',
-      details: 'Built a comprehensive analytics dashboard that aggregates data from multiple social media platforms. Features interactive charts, custom date ranges, and exportable reports.',
-    },
-    {
-      id: '6',
-      title: 'AI Chat Assistant',
-      description: 'Intelligent chatbot with natural language processing',
-      image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800',
-      tags: ['Python', 'TensorFlow', 'React', 'WebSocket'],
-      category: 'AI/ML',
-      liveUrl: '#',
-      githubUrl: '#',
-      details: 'Developed an AI-powered chat assistant using machine learning models for natural language understanding. Supports context-aware conversations and multi-language support.',
+      id: "5",
+      title: "Queens Finest Prints",
+      description: "A 3D customization shop for signs, card stands, and accessories",
+      image: "",
+      tags: ["React", "React-Bootstrap", "PayPal", "HTML", "CSS", "JavaScript"],
+      category: "Web App",
+      liveUrl: "https://queensfinestprints.com/",
+      githubUrl: "https://github.com/akabhowmick/queens-finest-prints",
+      details:
+        "Built a custom 3D e-commerce platform with PayPal checkout, product customization, mobile-responsive UI, and smooth browsing built with React and React-Bootstrap. Designed to showcase and sell NYC-themed 3D designs.",
     },
   ];
 
-  const categories = ['All', ...Array.from(new Set(projects.map((p) => p.category)))];
+  const categories = ["All", ...Array.from(new Set(projects.map((p) => p.category)))];
 
   const filteredProjects =
-    selectedCategory === 'All'
-      ? projects
-      : projects.filter((p) => p.category === selectedCategory);
+    selectedCategory === "All" ? projects : projects.filter((p) => p.category === selectedCategory);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -127,8 +123,8 @@ const Projects = () => {
               onClick={() => setSelectedCategory(category)}
               className={`px-6 py-2 rounded-full font-semibold transition-all ${
                 selectedCategory === category
-                  ? 'bg-blue-600 text-white shadow-lg scale-105'
-                  : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:shadow-md hover:scale-105'
+                  ? "bg-blue-600 text-white shadow-lg scale-105"
+                  : "bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:shadow-md hover:scale-105"
               }`}
             >
               {category}
@@ -141,7 +137,7 @@ const Projects = () => {
             <div
               key={project.id}
               className={`group bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 ${
-                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
               }`}
               style={{ transitionDelay: `${index * 100}ms` }}
             >

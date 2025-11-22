@@ -1,17 +1,17 @@
-import { useEffect, useRef, useState } from 'react';
-import { Github, Linkedin, Mail, MapPin, Send, Twitter } from 'lucide-react';
-import type { ContactFormData } from '../types';
+import { useEffect, useRef, useState } from "react";
+import { Github, Linkedin, Mail, MapPin, Send } from "lucide-react";
+import type { ContactFormData } from "../types";
 
 const Contact = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [formData, setFormData] = useState<ContactFormData>({
-    name: '',
-    email: '',
-    message: '',
+    name: "",
+    email: "",
+    message: "",
   });
   const [errors, setErrors] = useState<Partial<ContactFormData>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -39,19 +39,19 @@ const Contact = () => {
     const newErrors: Partial<ContactFormData> = {};
 
     if (!formData.name.trim()) {
-      newErrors.name = 'Name is required';
+      newErrors.name = "Name is required";
     }
 
     if (!formData.email.trim()) {
-      newErrors.email = 'Email is required';
+      newErrors.email = "Email is required";
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = 'Invalid email format';
+      newErrors.email = "Invalid email format";
     }
 
     if (!formData.message.trim()) {
-      newErrors.message = 'Message is required';
+      newErrors.message = "Message is required";
     } else if (formData.message.trim().length < 10) {
-      newErrors.message = 'Message must be at least 10 characters';
+      newErrors.message = "Message must be at least 10 characters";
     }
 
     setErrors(newErrors);
@@ -74,24 +74,38 @@ const Contact = () => {
     }
 
     setIsSubmitting(true);
-    setSubmitStatus('idle');
+    setSubmitStatus("idle");
 
     await new Promise((resolve) => setTimeout(resolve, 1500));
 
-    setSubmitStatus('success');
+    setSubmitStatus("success");
     setIsSubmitting(false);
-    setFormData({ name: '', email: '', message: '' });
+    setFormData({ name: "", email: "", message: "" });
 
     setTimeout(() => {
-      setSubmitStatus('idle');
+      setSubmitStatus("idle");
     }, 5000);
   };
 
   const socialLinks = [
-    { icon: Github, href: '#', label: 'GitHub', color: 'hover:text-gray-900 dark:hover:text-white' },
-    { icon: Linkedin, href: '#', label: 'LinkedIn', color: 'hover:text-blue-600' },
-    { icon: Twitter, href: '#', label: 'Twitter', color: 'hover:text-blue-400' },
-    { icon: Mail, href: 'mailto:your.email@example.com', label: 'Email', color: 'hover:text-red-600' },
+    {
+      icon: Github,
+      href: "https://github.com/akabhowmick",
+      label: "GitHub",
+      color: "hover:text-gray-900 dark:hover:text-white",
+    },
+    {
+      icon: Linkedin,
+      href: "linkedin.com/in/akash-bhowmick-web-dev/",
+      label: "LinkedIn",
+      color: "hover:text-blue-600",
+    },
+    {
+      icon: Mail,
+      href: "mailto:your.email@example.com",
+      label: "Email",
+      color: "hover:text-red-600",
+    },
   ];
 
   return (
@@ -111,14 +125,14 @@ const Contact = () => {
 
         <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
           <div
-            className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}
+            className={`transition-all duration-1000 ${
+              isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"
+            }`}
           >
-            <h3 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">
-              Let's Connect
-            </h3>
+            <h3 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">Let's Connect</h3>
             <p className="text-gray-600 dark:text-gray-400 mb-8 leading-relaxed">
-              I'm always interested in hearing about new projects and opportunities.
-              Whether you have a question or just want to say hi, I'll try my best to get back to you!
+              I'm always interested in hearing about new projects and opportunities. Whether you
+              have a question or just want to say hi, I'll try my best to get back to you!
             </p>
 
             <div className="space-y-6 mb-8">
@@ -132,7 +146,7 @@ const Contact = () => {
                     href="mailto:your.email@example.com"
                     className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                   >
-                    your.email@example.com
+                    akabhowmick@gmail.com
                   </a>
                 </div>
               </div>
@@ -166,7 +180,9 @@ const Contact = () => {
           </div>
 
           <div
-            className={`transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}
+            className={`transition-all duration-1000 delay-200 ${
+              isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
+            }`}
           >
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="relative">
@@ -177,7 +193,7 @@ const Contact = () => {
                   value={formData.name}
                   onChange={handleChange}
                   className={`peer w-full px-4 py-3 bg-gray-50 dark:bg-gray-800 border-2 ${
-                    errors.name ? 'border-red-500' : 'border-gray-200 dark:border-gray-700'
+                    errors.name ? "border-red-500" : "border-gray-200 dark:border-gray-700"
                   } rounded-lg focus:border-blue-600 dark:focus:border-blue-400 focus:outline-none transition-colors text-gray-900 dark:text-white placeholder-transparent`}
                   placeholder="Your Name"
                 />
@@ -200,7 +216,7 @@ const Contact = () => {
                   value={formData.email}
                   onChange={handleChange}
                   className={`peer w-full px-4 py-3 bg-gray-50 dark:bg-gray-800 border-2 ${
-                    errors.email ? 'border-red-500' : 'border-gray-200 dark:border-gray-700'
+                    errors.email ? "border-red-500" : "border-gray-200 dark:border-gray-700"
                   } rounded-lg focus:border-blue-600 dark:focus:border-blue-400 focus:outline-none transition-colors text-gray-900 dark:text-white placeholder-transparent`}
                   placeholder="Your Email"
                 />
@@ -223,7 +239,7 @@ const Contact = () => {
                   onChange={handleChange}
                   rows={6}
                   className={`peer w-full px-4 py-3 bg-gray-50 dark:bg-gray-800 border-2 ${
-                    errors.message ? 'border-red-500' : 'border-gray-200 dark:border-gray-700'
+                    errors.message ? "border-red-500" : "border-gray-200 dark:border-gray-700"
                   } rounded-lg focus:border-blue-600 dark:focus:border-blue-400 focus:outline-none transition-colors resize-none text-gray-900 dark:text-white placeholder-transparent`}
                   placeholder="Your Message"
                 />
@@ -256,13 +272,13 @@ const Contact = () => {
                 )}
               </button>
 
-              {submitStatus === 'success' && (
+              {submitStatus === "success" && (
                 <div className="p-4 bg-green-100 dark:bg-green-900/30 border border-green-500 text-green-700 dark:text-green-400 rounded-lg animate-fadeIn">
                   Thanks for reaching out! I'll get back to you soon.
                 </div>
               )}
 
-              {submitStatus === 'error' && (
+              {submitStatus === "error" && (
                 <div className="p-4 bg-red-100 dark:bg-red-900/30 border border-red-500 text-red-700 dark:text-red-400 rounded-lg animate-fadeIn">
                   Oops! Something went wrong. Please try again.
                 </div>

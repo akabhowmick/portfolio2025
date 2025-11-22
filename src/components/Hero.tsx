@@ -7,7 +7,7 @@ const Hero = () => {
   const [loopNum, setLoopNum] = useState(0);
   const [typingSpeed, setTypingSpeed] = useState(150);
 
-  const roles = ['Full Stack Developer', 'UI/UX Enthusiast', 'Problem Solver', 'Creative Thinker'];
+  const roles = ['Full Stack Developer', 'React Enthusiast', 'Educator', 'Taekwondo Master'];
 
   useEffect(() => {
     const handleType = () => {
@@ -61,7 +61,7 @@ const Hero = () => {
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
         <div className="mb-8 animate-fadeInUp">
           <h1 className="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-cyan-600 dark:from-blue-400 dark:to-cyan-400 bg-clip-text text-transparent">
-            Hi, I'm Your Name
+            Hi, I'm Akash Bhowmick
           </h1>
           <div className="h-12 md:h-16">
             <p className="text-2xl md:text-4xl text-gray-700 dark:text-gray-300">

@@ -62,6 +62,7 @@ const Navigation = ({ isDark, toggleDarkMode }: NavigationProps) => {
               onClick={() => scrollToSection('home')}
               className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 dark:from-blue-400 dark:to-cyan-400 bg-clip-text text-transparent hover:scale-105 transition-transform"
             >
+              {/* TODO put the logo image here */}
               Portfolio
             </button>
 

@@ -11,8 +11,8 @@ const About = () => {
     { name: 'TypeScript', level: 85 },
     { name: 'React', level: 90 },
     { name: 'Node.js', level: 80 },
-    { name: 'Python', level: 75 },
-    { name: 'UI/UX Design', level: 85 },
+    { name: 'Python', level: 85 },
+    { name: 'Java', level: 75 },
   ];
 
   const technologies = [
@@ -38,9 +38,15 @@ const About = () => {
       description: 'Built and maintained multiple client projects',
     },
     {
+      year: '2021',
+      title: 'Computer Engineering Degree',
+      organization: 'New York University',
+      description: 'Graduated with honors in Computer Science',
+    },
+    {
       year: '2020',
-      title: 'Computer Science Degree',
-      organization: 'University Name',
+      title: 'Computer Engineering Degree',
+      organization: 'New York University',
       description: 'Graduated with honors in Computer Science',
     },
   ];

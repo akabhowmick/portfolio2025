@@ -9,3 +9,5 @@ This website is my personal website. Please enjoy and feel free to contact me wi
 
 ## Technologies Used
 - React
+- Typescript 
+- Tailwind CSS

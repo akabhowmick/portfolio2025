@@ -10,8 +10,6 @@ const Contact = () => {
     message: "",
   });
   const [errors, setErrors] = useState<Partial<ContactFormData>>({});
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -24,13 +22,15 @@ const Contact = () => {
       { threshold: 0.1 }
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+    const currentElement = sectionRef.current;
+
+    if (currentElement) {
+      observer.observe(currentElement);
     }
 
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
+      if (currentElement) {
+        observer.unobserve(currentElement);
       }
     };
   }, []);
@@ -66,25 +66,15 @@ const Contact = () => {
     }
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
     if (!validateForm()) {
       return;
     }
 
-    setIsSubmitting(true);
-    setSubmitStatus("idle");
-
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-
-    setSubmitStatus("success");
-    setIsSubmitting(false);
-    setFormData({ name: "", email: "", message: "" });
-
-    setTimeout(() => {
-      setSubmitStatus("idle");
-    }, 5000);
+    // If validation passes, submit the form
+    (e.target as HTMLFormElement).submit();
   };
 
   const socialLinks = [
@@ -96,13 +86,13 @@ const Contact = () => {
     },
     {
       icon: Linkedin,
-      href: "linkedin.com/in/akash-bhowmick-web-dev/",
+      href: "https://linkedin.com/in/akash-bhowmick-web-dev/",
       label: "LinkedIn",
       color: "hover:text-blue-600",
     },
     {
       icon: Mail,
-      href: "mailto:your.email@example.com",
+      href: "mailto:akabhowmick@gmail.com",
       label: "Email",
       color: "hover:text-red-600",
     },
@@ -143,7 +133,7 @@ const Contact = () => {
                 <div>
                   <h4 className="font-semibold text-gray-900 dark:text-white mb-1">Email</h4>
                   <a
-                    href="mailto:your.email@example.com"
+                    href="mailto:akabhowmick@gmail.com"
                     className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                   >
                     akabhowmick@gmail.com
@@ -157,7 +147,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-gray-900 dark:text-white mb-1">Location</h4>
-                  <p className="text-gray-600 dark:text-gray-400">City, Country</p>
+                  <p className="text-gray-600 dark:text-gray-400">New York, NY</p>
                 </div>
               </div>
             </div>
@@ -169,6 +159,8 @@ const Contact = () => {
                   <a
                     key={social.label}
                     href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className={`p-3 bg-gray-100 dark:bg-gray-800 rounded-lg text-gray-600 dark:text-gray-400 ${social.color} transition-all hover:scale-110 hover:shadow-lg`}
                     aria-label={social.label}
                   >
@@ -184,7 +176,17 @@ const Contact = () => {
               isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
             }`}
           >
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form
+              action="https://formsubmit.co/akabhowmick@gmail.com"
+              method="POST"
+              onSubmit={handleSubmit}
+              className="space-y-6"
+            >
+              {/* Hidden FormSubmit fields */}
+              <input type="hidden" name="_next" value="https://akashbhowmick.com/" />
+              <input type="hidden" name="_subject" value="Contact Form Inquiry!" />
+              <input type="hidden" name="_template" value="table" />
+
               <div className="relative">
                 <input
                   type="text"
@@ -256,33 +258,11 @@ const Contact = () => {
 
               <button
                 type="submit"
-                disabled={isSubmitting}
-                className="w-full py-4 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-all hover:shadow-lg disabled:bg-gray-400 disabled:cursor-not-allowed flex items-center justify-center gap-2 group"
+                className="w-full py-4 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-all hover:shadow-lg flex items-center justify-center gap-2 group"
               >
-                {isSubmitting ? (
-                  <>
-                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                    Sending...
-                  </>
-                ) : (
-                  <>
-                    Send Message
-                    <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                  </>
-                )}
+                Send Message
+                <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </button>
-
-              {submitStatus === "success" && (
-                <div className="p-4 bg-green-100 dark:bg-green-900/30 border border-green-500 text-green-700 dark:text-green-400 rounded-lg animate-fadeIn">
-                  Thanks for reaching out! I'll get back to you soon.
-                </div>
-              )}
-
-              {submitStatus === "error" && (
-                <div className="p-4 bg-red-100 dark:bg-red-900/30 border border-red-500 text-red-700 dark:text-red-400 rounded-lg animate-fadeIn">
-                  Oops! Something went wrong. Please try again.
-                </div>
-              )}
             </form>
           </div>
         </div>

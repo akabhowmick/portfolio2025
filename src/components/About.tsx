@@ -15,7 +15,7 @@ const About = () => {
     { name: "Node.js", level: 80 },
     { name: "Python", level: 85 },
     { name: "Java", level: 75 },
-    { name: "c++", level: 70 },
+    { name: "C++", level: 70 },
   ];
 
   const technologies = [
@@ -29,28 +29,44 @@ const About = () => {
 
   const timeline: TimelineItem[] = [
     {
+      year: "2025",
+      title: "Contract Software Engineer",
+      organization: "Zealthy",
+      description:
+        "Optimized enterprise platform for 100K+ users, led growth experiments across onboarding funnels",
+    },
+    {
       year: "2024",
-      title: "Senior Developer",
-      organization: "Tech Company",
-      description: "Leading development of scalable web applications",
+      title: "Full Stack Developer",
+      organization: "Z&Z Books",
+      description:
+        "Developing interactive children's book platform with React, TypeScript, and Tailwind CSS",
     },
     {
       year: "2022",
       title: "Full Stack Developer",
-      organization: "Startup Inc",
-      description: "Built and maintained multiple client projects",
+      organization: "Print3DVerse, Queens Finest Prints",
+      description:
+        "Built e-commerce platforms with A/B testing, achieving 20% conversion lift and 40% engagement boost",
     },
     {
       year: "2021",
-      title: "Computer Engineering Degree",
+      title: "Master of Science in Computer Engineering",
       organization: "New York University",
-      description: "Graduated with honors in Computer Science",
+      description: "Advanced studies in software engineering and system design",
     },
     {
-      year: "2020",
-      title: "Computer Engineering Degree",
+      year: "2019",
+      title: "Bachelor of Science in Computer Engineering",
       organization: "New York University",
-      description: "Graduated with honors in Computer Science",
+      description: "Foundation in computer systems, algorithms, and software development",
+    },
+    {
+      year: "2019",
+      title: "Senior Consultant and Developer",
+      organization: "Keystone Education",
+      description:
+        "Developed student management platform, mentored 50+ students into top-tier universities",
     },
   ];
 
@@ -64,13 +80,15 @@ const About = () => {
       { threshold: 0.1 }
     );
 
-    if (sectionRef.current) {
+    const currentElement = sectionRef.current;
+
+    if (currentElement) {
       observer.observe(sectionRef.current);
     }
 
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
+      if (currentElement) {
+        observer.unobserve(currentElement);
       }
     };
   }, []);

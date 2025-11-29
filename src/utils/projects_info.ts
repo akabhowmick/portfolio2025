@@ -29,7 +29,7 @@ export const projects: Project[] = [
       "An engaging digital reading platform for children featuring interactive elements, progress tracking, and personalized reading experiences.",
     image: ZZPic,
     tags: ["React", "TypeScript", "Tailwind CSS", "Framer Motion", "Supabase"],
-    category: "Full-Stack",
+    category: "Full Stack",
     githubUrl: "https://github.com/akabhowmick/zara-zen-world-tour",
     liveUrl: "https://zarazenworldtour.netlify.app/",
     details:
@@ -67,7 +67,7 @@ export const projects: Project[] = [
       "A comprehensive flashcard application for learning Data Structures and Algorithms using spaced repetition.",
     image: DSAPic,
     tags: ["React", "TypeScript", "Supabase", "LLM", "DSA"],
-    category: "Web App",
+    category: "Full Stack",
     liveUrl: "https://your-live-url.com",
     githubUrl: "https://github.com/akabhowmick/dsa-deck",
     details:
@@ -79,7 +79,7 @@ export const projects: Project[] = [
     description: "An online store for selling 3D-rendered house designs",
     image: D3Pic,
     tags: ["React", "Firebase", "PayPal", "MUI", "HTML", "CSS", "JavaScript"],
-    category: "Web App",
+    category: "E-Commerce",
     liveUrl: "https://print3dverse.com/",
     githubUrl: "https://github.com/akabhowmick/3d-site",
     details:
@@ -103,7 +103,7 @@ export const projects: Project[] = [
     description: "A 3D customization shop for signs, card stands, and accessories",
     image: QueensPic,
     tags: ["React", "React-Bootstrap", "PayPal", "HTML", "CSS", "JavaScript"],
-    category: "Web App",
+    category:"E-Commerce",
     liveUrl: "https://queensfinestprints.com/",
     githubUrl: "https://github.com/akabhowmick/queens-finest-prints",
     details:

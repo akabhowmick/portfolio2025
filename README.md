@@ -15,7 +15,6 @@ This website is my personal website. Please enjoy and feel free to contact me wi
 
 To do:
 - portfolio images
-- favicon
 - logo 
 - taekwontrack (publish)
 - z and z books (publish)

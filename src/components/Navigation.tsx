@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Menu, Moon, Sun, X } from "lucide-react";
+import logo from "../assets/logo/logo.png";
 
 interface NavigationProps {
   isDark: boolean;
@@ -60,10 +61,10 @@ const Navigation = ({ isDark, toggleDarkMode }: NavigationProps) => {
           <div className="flex items-center justify-between h-16 md:h-20">
             <button
               onClick={() => scrollToSection("home")}
-              className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 dark:from-blue-400 dark:to-cyan-400 bg-clip-text text-transparent hover:scale-105 transition-transform"
+              className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 dark:from-blue-400 dark:to-cyan-400 bg-clip-text text-transparent hover:scale-105 transition-transform flex items-center gap-2.5"
             >
-              {/* TODO put the logo image here */}
-              Portfolio
+              <img className="w-[48px] rounded-md" src={logo} alt="site-logo" />
+              <div>Code by <span className="text-green-500">AB</span></div>
             </button>
 
             <div className="hidden md:flex items-center space-x-1">

@@ -16,7 +16,7 @@ function App() {
       <Projects />
       <Contact />
       <footer className="py-8 bg-gray-900 dark:bg-black text-center text-gray-400">
-        <p>&copy; 2024 Your Name. All rights reserved.</p>
+        <p>&copy; 2025 Code by AB. All rights reserved.</p>
       </footer>
     </div>
   );

@@ -39,7 +39,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="pt-8 md:pt-0 relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-50 via-white to-cyan-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900"
+      className="pt-12 md:pt-0 relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-50 via-white to-cyan-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900"
     >
       <div className="absolute inset-0 overflow-hidden">
         {[...Array(20)].map((_, i) => (

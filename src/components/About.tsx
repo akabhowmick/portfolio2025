@@ -30,6 +30,13 @@ const About = () => {
   const timeline: TimelineItem[] = [
     {
       year: "2025",
+      title: "Full Stack Developer",
+      organization: "Next Gen Coding Company",
+      description:
+        "Optimized enterprise platform for 100K+ users, led growth experiments across onboarding funnels",
+    },
+    {
+      year: "2025",
       title: "Contract Software Engineer",
       organization: "Zealthy",
       description:
@@ -50,6 +57,13 @@ const About = () => {
         "Built e-commerce platforms with A/B testing, achieving 20% conversion lift and 40% engagement boost",
     },
     {
+      year: "2019",
+      title: "Senior Consultant and Developer",
+      organization: "Keystone Education",
+      description:
+        "Developed student management platform, mentored 50+ students into top-tier universities",
+    },
+    {
       year: "2021",
       title: "Master of Science in Computer Engineering",
       organization: "New York University",
@@ -61,13 +75,6 @@ const About = () => {
       organization: "New York University",
       description: "Foundation in computer systems, algorithms, and software development",
     },
-    {
-      year: "2019",
-      title: "Senior Consultant and Developer",
-      organization: "Keystone Education",
-      description:
-        "Developed student management platform, mentored 50+ students into top-tier universities",
-    },
   ];
 
   useEffect(() => {
@@ -77,7 +84,7 @@ const About = () => {
           setIsVisible(true);
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
     const currentElement = sectionRef.current;

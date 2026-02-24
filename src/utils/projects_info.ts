@@ -93,7 +93,7 @@ export const projects: Project[] = [
     tags: ["React", "TypeScript", "MUI", "HTML", "CSS", "JavaScript"],
     category: "Web App",
     liveUrl: "https://marutaekwondo.com/",
-    githubUrl: "https://github.com/akabhowmick/TaekwonMaru-React",
+    githubUrl: "https://github.com/akabhowmick/taekwonmaru-2026",
     details:
       "Designed a clean, responsive site for a New York Taekwondo studio. Includes instructor bios, class offerings, schedules, contact forms, and promotional sections. Built to function as both a brand site and a reusable template for small businesses.",
   },
@@ -103,7 +103,7 @@ export const projects: Project[] = [
     description: "A 3D customization shop for signs, card stands, and accessories",
     image: QueensPic,
     tags: ["React", "React-Bootstrap", "PayPal", "HTML", "CSS", "JavaScript"],
-    category:"E-Commerce",
+    category: "E-Commerce",
     liveUrl: "https://queensfinestprints.com/",
     githubUrl: "https://github.com/akabhowmick/queens-finest-prints",
     details:
